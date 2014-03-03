@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+		<title></title>
+		
+		<link rel="stylesheet" href="css/jquery.mobile-1.0b2.css" />
+		<script src="js/jquery-1.7.1.min.js"></script>
+		<script src="js/jquery.mobile.min.js"></script>
+		<script src="cordova.js"></script>
+		<script src="js/index.js"></script>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<div data-role='header' data-id="PersistentHeader" data-position="fixed">
+				<h1>BC Blue</h1>  
+				<a id="back" href="javascript:window.history.go(-1);" data-role="button">Back</a> 
+				<a id="home" href="index.html" data-role="button">Home</a>
+		</div>
+		<div data-role='content'>
+			<div id="user_cont">
+			<h2>Characteristics</h2>
+				<h1><div id="char_deviceName"></h1>	
+				<b>Device_ID: </b><div id = "char_deviceID"></div></br>
+				<b>Service Name: </b><div id = "service_name"></div></br>
+			 	<div id="aaa" style="clear:both; margin-top:20px;margin-bottom:10px;">
+			 	<ul data-role='listview' id="char_view">
+
+				</ul>
+					<ul data-role='listview' id="list_model">
+						<li id="char_tpl" style="display:none;overflow:hidden">
+								<p><h1 dbField='name'></h1><p>
+								<p><b>Index:</b><span dbField='index'></span></p>
+								<p><b>UUID:</b><span dbField='uuid'></span></p>
+								<p><b>Property:</b><span dbField='property'></span></p>
+								<p style="width:40%;padding-left:4%;padding-right:4%;float:left;background:#ccc;height:32px;line-height:32px;border:1px solid #000;border-radius:10px;text-align:center"><a id="getDes" style="text-decoration:none" href="javascript:void(0)">see descriptors</a></p>
+								<p style="width:40%;padding-left:4%;padding-right:4%;float:right;background:#ccc;height:32px;line-height:32px;border:1px solid #000;border-radius:10px;text-align:center"><a id="optChar" style="text-decoration:none" href="javascript:void(0)">operate charactoristisc</a></p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script>
+			$(function(){
+				app.charViewInit();
+			});
+		</script>
+	</body>
+</html>

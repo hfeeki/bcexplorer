@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+		<title></title>
+		<link rel="stylesheet" href="css/jquery.mobile.min.css" />
+		<script src="js/jquery-1.7.1.min.js"></script>
+		<script src="js/jquery.mobile.min.js"></script>
+		<script src="cordova.js"></script>
+		<script type="text/javascript" charset="utf-8" src="underscore.js"></script>
+		<script src="bc.js"></script>
+		<script src="js/index.js"></script>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script>
+			$(function(){
+				app.initialize();
+			});
+			
+		</script>
+		
+		<style>  
+    		div.ui-slider-switch { width: 7em }  
+		</style> 
+	</head>
+	<body>
+		<div data-role='page' id="content_page">
+			<div data-role='header' data-id="PersistentHeader" data-position="fixed">
+				<h1>BC Blue</h1>
+				<div data-role="fieldcontain">  
+            		<select name="scan" id="scanOnOff" data-role="slider" >  
+                		<option value="0">Start Scan</option>  
+                		<option value="1" selected="selected">Scanning...</option>  
+            		</select>
+            		
+        		</div>      
+			</div>
+			<div data-role='content'>
+				<a id="createService" href="javascript:void(0)" onclick="app.createService()" data-role="button" style="clear:both; text-align:center;">Create Service!</a>
+				<a id="removeService" href="javascript:void(0)" onclick="app.removeService()" data-role="button" style="clear:both; text-align:center;">Remove Service!</a>
+				<a id="removeService" href="javascript:void(0)" onclick="app.getPairedDevice()" data-role="button" style="clear:both; text-align:center;">Get All Paired Device!</a>
+				<a id="removeService" href="javascript:void(0)" onclick="app.getConnectedDevice()" data-role="button" style="clear:both; text-align:center;">Get All Connected Device!</a>
+				<div id="user_cont" style="clear:both; margin-top:20px;margin-bottom:10px;">
+					<ul data-role='listview' id="user_view">
+
+					</ul>
+					<ul data-role='listview' id="list_model">
+						<li id="li_tpl" style="display:none">
+							<a href="javascript:void(0)" onclick="app.next_page('aaaa','bbbb','cccc')">
+								<p><h1 dbField='deviceName'>Mokai</h1><p>
+								<p>Is Connected: <span dbField='isConnected'>YES</span></p>
+								<p>Device ID: <span dbField='deviceID'>902897712-1292716-129128</span></p>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+	</body>
+</html>
