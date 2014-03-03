@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+		<title></title>
+		<link rel="stylesheet" href="css/jquery.mobile.min.css" />
+		<script src="js/jquery-1.7.1.min.js"></script>
+		<script src="js/jquery.mobile.min.js"></script>
+		<script src="cordova.js"></script>
+		<script src="js/index.js"></script>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<div data-role='header' data-id="PersistentHeader" data-position="fixed">
+				<h1>BC Blue</h1>
+				<a id="back" href="javascript:window.history.go(-1);" data-role="button">Back</a> 
+				<a id="home" href="index.html" data-role="button">Home</a>
+				<a id="connect" href="javascript:void(0)" data-role="button" style="display:none">connect</a>  
+				<a id="disconnect" href="javascript:void(0)" data-role="button" style="display:none">disconnect</a>  
+		</div>
+		<div data-role='content'>
+			<div id="user_cont">
+				<h2>Services</h2>
+				<h1><div id="deviceName"></h1>	
+				<b>Device_ID: </b><div id = "deviceID"></div></br>
+				<div style="display:none"><b>Is connected: </b><div id = "isConnected"></div></div>
+			 	<div id="aaa" >
+				<div id="device_operation" style="display:none">
+					<a id="getDeviceInfo" href="javascript:void(0)" onclick="app.getDeviceInfo()" data-role="button">Get Device Information!</a>
+					<a id="getRSSI" href="javascript:void(0)" onclick="app.getRSSI()" data-role="button">Get RSSI!</a>
+					<a id="createPair" href="javascript:void(0)" onclick="app.createPair()" data-role="button">Create Pair!</a>
+					<a id="removePair" href="javascript:void(0)" onclick="app.removePair()" data-role="button">Remove Pair!</a>
+				</div>
+			 	<ul data-role='listview' id="service_view" style="clear:both; margin-top:20px;margin-bottom:10px;">
+
+				</ul>
+					<ul data-role='listview' id="list_model">
+						<li id="service_tpl" style="display:none">
+							<a href="javascript:void(0)" onclick="app.getChar()">
+								<p><h1 dbField='name'></h1><p>
+								<p><b>ServiceIndex:</b><span dbField='index'></span></p>
+								<p><b>ServiceUUID:</b><span dbField='uuid'></span></p>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script>
+			$(function(){
+				app.deviceViewInit();
+			});
+		</script>
+	</body>
+</html>

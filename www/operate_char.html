@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+		<title></title>
+		<link rel="stylesheet" href="css/jquery.mobile.min.css" />
+		<script src="js/jquery-1.7.1.min.js"></script>
+		<script src="js/jquery.mobile.min.js"></script>
+		<script src="cordova.js"></script>
+		<script src="js/index.js"></script>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<div data-role='header' data-id="PersistentHeader" data-position="fixed">
+				<a id="back" href="javascript:window.history.go(-1);" data-role="button">Back</a> 
+				<a id="home" href="index.html" data-role="button">Home</a>
+				<h1>BC Blue</h1>  
+		</div>
+		<div data-role='content'>
+			<div id="user_cont">
+			<h2>Characteristic Operations</h2>
+				<h1><div id="operate_char_deviceName"></div></h1>	
+				<b>Device_ID: </b><div id = "operate_char_deviceID"></div></br>
+				<b>Service Name: </b><div id = "operate_service_name"></div></br>
+				<b>Characteristic Name: </b><div id = "operate_char_name"></div></br>
+				<b>Notify Value(Hex): </b><div id="notifyValue_hex"></div></br>
+				<b>Notify Value(ASCII): </b><div id="notifyValue_ascii" ></div></br>
+				<b>Notify Value(Unicode): </b><div id="notifyValue_unicode"></div></br>
+				<b>Notify Date: </b><div id="notifyDate"></div>
+			 	<div id="aaa">
+			 		<a id="getDes_btn" href="javascript:void(0)" data-role="button">See Descriptor</a>
+			 		<a id="read" href="javascript:void(0)" data-role="button" style="display:none">Read</a>
+			 		<a id="subscribe" href="javascript:void(0)" data-role="button" style="display:none">Subscribe</a>
+			 		<a id="unsubscribe" href="javascript:void(0)" data-role="button" style="display:none">Unsubscribe</a>
+			 		<a id="indicate" href="javascript:void(0)" data-role="button" style="display:none">Start Indicate</a>
+			 		<a id="test" href="javascript:void(0)" data-role="button" style="display:none">test</a>
+				</div>
+			</div>
+		</div>
+		
+		<div data-role="fieldcontain" style="display:none" id="writeInput">
+			<label for="textarea">Type:</label>
+			<fieldset data-role="controlgroup" data-type="horizontal">
+ 				<input type="radio" name="writeType" id="rdo1" value="Hex" checked="checked"/>
+ 				<label for="rdo1">Hex</label>
+ 				<input type="radio" name="writeType" id="rdo2" value="unicode"/>
+ 				<label for="rdo2">Unicode</label>
+ 				<input type="radio" name="writeType" id="rdo3" value="ASCII"/>
+ 				<label for="rdo3">ASCII</label>
+			</fieldset>
+			</br>
+			<label for="textarea">Value:</label>
+			<textarea cols="40" rows="8" name="textarea" id="writeValue"></textarea>
+			<a id="writeOK" href="javascript:void(0)" data-role="button" >Write</a>
+			<a id="writeClear" href="javascript:void(0)" data-role="button" >Clear</a>
+		</div>
+		<script>
+			$(function(){
+				app.operateCharViewInit();
+			});
+		</script>
+	</body>
+</html>
