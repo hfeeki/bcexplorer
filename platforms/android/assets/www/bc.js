@@ -1096,7 +1096,7 @@
 		    var chars = arguments[1];
 		    var service = this;
 		    var device = this.device;
-			service.characteristics = [];
+		    service.characteristics = [];
 			_.each(chars.characteristics, function(characteristic){
                     var cindex = characteristic.characteristicIndex;
                     var cname = characteristic.characteristicName;
