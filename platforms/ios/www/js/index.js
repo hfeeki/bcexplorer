@@ -324,8 +324,7 @@ var app = {
 				character.subscribe(app.onNotify);
 			});
 			$("#unsubscribe").show().click(function(){character.unsubscribe(function(){alert("unsubscribe success!");})});
-			$("#notifyValue").show();
-			$("#notifyDate").show();
+			$("#notifyData").show();
 		}
 		if(character.property.contains("indicate")){
 			$("#indicate").show().click(app.indicateChar);
