@@ -72,6 +72,7 @@
 #endif
     self.window.autoresizesSubviews = YES;
 
+    [self getWindow];
 #if __has_feature(objc_arc)
         self.viewController = [[MainViewController alloc] init];
 #else
@@ -90,7 +91,14 @@
 
     return YES;
 }
-
+- (void)getWindow{
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+        //解决状态栏的显示的问题
+        self.window.clipsToBounds = YES;
+        self.window.frame = CGRectMake(0, 20, self.window.frame.size.width, self.window.frame.size.height);
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    }
+}
 // this happens while we are running ( in the background, or from within our own app )
 // only valid if BCExplorer-Info.plist specifies a protocol to handle
 - (BOOL)application:(UIApplication*)application handleOpenURL:(NSURL*)url
@@ -120,7 +128,8 @@
 - (NSUInteger)application:(UIApplication*)application supportedInterfaceOrientationsForWindow:(UIWindow*)window
 {
     // iPhone doesn't support upside down by default, while the iPad does.  Override to allow all orientations always, and let the root view controller decide what's allowed (the supported orientations mask gets intersected).
-    NSUInteger supportedInterfaceOrientations = (1 << UIInterfaceOrientationPortrait) | (1 << UIInterfaceOrientationLandscapeLeft) | (1 << UIInterfaceOrientationLandscapeRight) | (1 << UIInterfaceOrientationPortraitUpsideDown);
+    NSUInteger supportedInterfaceOrientations = (1 << UIInterfaceOrientationPortrait);
+    //| (1 << UIInterfaceOrientationLandscapeLeft) | (1 << UIInterfaceOrientationLandscapeRight) | (1 << UIInterfaceOrientationPortraitUpsideDown);
 
     return supportedInterfaceOrientations;
 }
